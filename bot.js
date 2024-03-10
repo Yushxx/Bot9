@@ -3,7 +3,10 @@ const http = require('http');
 const token = '6837924024:AAHYKYDukRPamhb-Wj8P6b_i3nnmVO-OPTA';
 const bot = new TelegramBot(token, { polling: true });
 
+let isAfterStart = false;
+
 bot.onText(/\/start/, (msg) => {
+    isAfterStart = true;
     bot.sendMessage(msg.chat.id, 'Bienvenue dans la bibliothèque des applications hack!', {
         reply_markup: {
             inline_keyboard: [
@@ -40,7 +43,7 @@ bot.on('message', (msg) => {
     const chatId = msg.chat.id;
     const userId = msg.text;
 
-    if (!isNaN(userId) && parseInt(userId) >= 700000000 && parseInt(userId) <= 999999999) {
+    if (isAfterStart && !isNaN(userId) && parseInt(userId) >= 700000000 && parseInt(userId) <= 999999999) {
         bot.sendMessage(chatId, 'ID accepté. Voici le lien de téléchargement : https://t.me/SOLKAH00/5679', {
             reply_markup: {
                 inline_keyboard: [
@@ -50,11 +53,10 @@ bot.on('message', (msg) => {
                 ]
             }
         });
-    } else {
+    } else if (isAfterStart) {
         bot.sendMessage(chatId, 'Veuillez entrer un ID valide en créant un nouveau compte avec le code promo *Free221* ✅️.');
     }
 });
-
 
 // Créez un serveur HTTP simple qui renvoie "I'm alive" lorsque vous accédez à son URL
 const server = http.createServer((req, res) => {
@@ -67,4 +69,3 @@ const server = http.createServer((req, res) => {
 server.listen(8080, () => {
     console.log("Keep alive server is running on port 8080");
 });
-
