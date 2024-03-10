@@ -1,12 +1,10 @@
 const TelegramBot = require('node-telegram-bot-api');
 const http = require('http');
+
 const token = '6837924024:AAHYKYDukRPamhb-Wj8P6b_i3nnmVO-OPTA';
 const bot = new TelegramBot(token, { polling: true });
 
-let isAfterStart = false;
-
 bot.onText(/\/start/, (msg) => {
-    isAfterStart = true;
     bot.sendMessage(msg.chat.id, 'Bienvenue dans la bibliothèque des applications hack!', {
         reply_markup: {
             inline_keyboard: [
@@ -43,7 +41,9 @@ bot.on('message', (msg) => {
     const chatId = msg.chat.id;
     const userId = msg.text;
 
-    if (isAfterStart && !isNaN(userId) && parseInt(userId) >= 700000000 && parseInt(userId) <= 999999999) {
+    if (userId === '/start') {
+        // Do nothing, only send welcome message
+    } else if (!isNaN(userId) && parseInt(userId) >= 700000000 && parseInt(userId) <= 999999999) {
         bot.sendMessage(chatId, 'ID accepté. Voici le lien de téléchargement : https://t.me/SOLKAH00/5679', {
             reply_markup: {
                 inline_keyboard: [
@@ -53,7 +53,7 @@ bot.on('message', (msg) => {
                 ]
             }
         });
-    } else if (isAfterStart) {
+    } else {
         bot.sendMessage(chatId, 'Veuillez entrer un ID valide en créant un nouveau compte avec le code promo *Free221* ✅️.');
     }
 });
