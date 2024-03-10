@@ -51,7 +51,7 @@ bot.on('message', (msg) => {
             }
         });
     } else {
-        bot.sendMessage(chatId, 'Veuillez entrer un ID valide (entre 700000000 et 999999999).');
+        bot.sendMessage(chatId, 'Veuillez entrer un ID valide en créant un nouveau compte avec le code promo *Free221* ✅️.');
     }
 });
 
