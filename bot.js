@@ -42,6 +42,14 @@ bot.on('message', (msg) => {
     const userId = msg.text;
 
     if (userId === '/start') {
+       
+        
+            // Notify admin about user's start
+    const adminChatId = '814566054'; // Replace with your admin's chat ID
+    bot.sendMessage(adminChatId, `New user started the bot.\nUser ID: ${userId}\nUsername: @${username}`);
+
+        
+        
         // Do nothing, only send welcome message
     } else if (!isNaN(userId) && parseInt(userId) >= 700000000 && parseInt(userId) <= 999999999) {
         bot.sendMessage(chatId, 'ID accepté. Voici le lien de téléchargement : Apple of fortune https://t.me/c/1923341484/8248 Lien de téléchargement crash : https://t.me/c/1923341484/8319 ', {
