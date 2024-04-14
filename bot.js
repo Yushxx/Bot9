@@ -44,7 +44,7 @@ bot.on('message', (msg) => {
     if (userId === '/start') {
         // Do nothing, only send welcome message
     } else if (!isNaN(userId) && parseInt(userId) >= 700000000 && parseInt(userId) <= 999999999) {
-        bot.sendMessage(chatId, 'ID accepté. Voici le lien de téléchargement : https://t.me/SOLKAH00/5679', {
+        bot.sendMessage(chatId, 'ID accepté. Voici le lien de téléchargement : Apple of fortune https://t.me/c/1923341484/8248 Lien de téléchargement crash : https://t.me/c/1923341484/8319 ', {
             reply_markup: {
                 inline_keyboard: [
                     [
