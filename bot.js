@@ -43,7 +43,7 @@ bot.on('message', (msg) => {
     if (userId === '/start') {
         // Do nothing, only send welcome message
     } else if (/^\d{10}$/.test(userId)) { // Check if the ID is exactly 9 digits
-        bot.sendMessage(chatId, 'ID accepté. Voici le lien de téléchargement : Apple of fortune https://t.me/Solkahack/45 Lien de téléchargement crash : https://t.me/Solkahack/21 ', {
+        bot.sendMessage(chatId, 'ID accepté. Voici le lien de téléchargement : Apple of fortune https://t.me/Solkahack/54https://t.me/Solkahack/54 Lien de téléchargement crash : https://t.me/Solkahack/21 ', {
             reply_markup: { inline_keyboard: [[{ text: 'Contact admin', url: 'https://t.me/Medatt00' }]] }
         });
     } else {
